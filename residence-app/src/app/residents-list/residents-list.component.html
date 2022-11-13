@@ -1,0 +1,25 @@
+<h1 id="tableLabel">Список всех жителей</h1>
+
+<p>Здесь вы можете просмотреть список всех жителей и узнать о них дополнительные данные .</p>
+
+<p *ngIf="!residents"><em>Loading...</em></p>
+
+<table class='table' aria-labelledby="tableLabel" *ngIf="residents">
+  <thead>
+    <tr>
+      <th>ИД</th>
+      <th>ФИО</th>
+      <th>Номер Дома</th>
+      <th>Номер и Серия Паспорта</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let resident of residents">
+      <td>{{ resident.id }}</td>
+      <td>{{ resident.name }}</td>
+      <td>{{ resident.houseNumber }}</td>
+      <td>{{ resident.passportCode }}</td>   
+    </tr>
+  </tbody>
+</table>

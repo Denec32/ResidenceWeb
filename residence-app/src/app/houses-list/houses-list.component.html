@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Список всех зданий</h1>
+
+<p>Здесь вы можете просмотреть список всех зданий и узнать количество жителей домов с четным номером.</p>
+
+<p *ngIf="!houses"><em>Loading...</em></p>
+
+<table class='table' aria-labelledby="tableLabel" *ngIf="houses">
+  <thead>
+    <tr>
+      <th>ИД</th>
+      <th>Номер дома</th>
+      <th>Адрес</th>
+      <th>Количество жителей</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let house of houses">
+      <td>{{ house.id }}</td>
+      <td>{{ house.number }}</td>
+      <td>{{ house.address }}</td>
+      <td *ngIf="house.population != -1; else noData">{{ house.population }}</td>  
+      <ng-template #noData>
+        <td>Данные отсуствуют</td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,33 @@
+<h1 id="tableLabel">Получение данных о территории по адресу</h1>
+<form>
+    <div class="mb-3">
+      <label for="id" class="form-label">Улица и номер дома: </label>
+      <input id="id" type="input" [formControl]="address" class="form-control" required>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="getTerritorialInfo()">Получить данные</button>
+</form>
+
+<h1 id="tableLabel">Результаты поиска</h1>
+
+<p *ngIf="!territories"><em>Loading...</em></p>
+
+<table class='table' aria-labelledby="tableLabel" *ngIf="territories">
+  <thead>
+    <tr>
+      <th>ИД</th>
+      <th>Почтовый Индекс</th>
+      <th>Код ИФНС</th>
+      <th>Код ОКАТО</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let territory of territories">
+      <td>{{ territory.id }}</td>
+      <td>{{ territory.postCode }}</td>
+      <td>{{ territory.ftsi }}</td>
+      <td>{{ territory.arcps }}</td>   
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Список всех пустых зданий</h1>
+
+<p>Здесь вы можете просмотреть список всех пустых зданий.</p>
+
+<p *ngIf="!emptyHouses"><em>Loading...</em></p>
+
+<table class='table' aria-labelledby="tableLabel" *ngIf="emptyHouses">
+  <thead>
+    <tr>
+      <th>ИД</th>
+      <th>Город</th>
+      <th>Улица</th>
+      <th>Номер Дома</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let house of emptyHouses">
+      <td>{{ house.id }}</td>
+      <td>{{ house.city }}</td>
+      <td>{{ house.street }}</td>
+      <td>{{ house.number }}</td>  
+
+    </tr>
+  </tbody>
+</table>
